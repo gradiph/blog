@@ -40,4 +40,8 @@ class Product extends Model
     /**
      * Relationship
      */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag')->using('App\ProductTag');
+    }
 }

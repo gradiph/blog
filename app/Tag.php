@@ -23,6 +23,10 @@ class Tag extends Model
     /**
      * Accessor
      */
+    public function getUsedCountAttribute()
+    {
+        return $this->products()->count();
+    }
 
     /**
      * Mutator
@@ -31,4 +35,8 @@ class Tag extends Model
     /**
      * Relationship
      */
+    public function products()
+    {
+        return $this->belongsToMany('App\Product')->using('App\ProductTag');
+    }
 }
