@@ -32,6 +32,10 @@ class Product extends Model
     /**
      * Accessor
      */
+    public function getLikedCountAttribute()
+    {
+        return $this->likes()->count();
+    }
 
     /**
      * Mutator
@@ -40,6 +44,11 @@ class Product extends Model
     /**
      * Relationship
      */
+    public function likes()
+    {
+        return $this->belongsToMany('App\User', 'like')->using('App\Like');
+    }
+
     public function tags()
     {
         return $this->belongsToMany('App\Tag')->using('App\ProductTag');
