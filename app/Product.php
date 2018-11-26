@@ -44,6 +44,11 @@ class Product extends Model
     /**
      * Relationship
      */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
     public function likes()
     {
         return $this->belongsToMany('App\User', 'like')->using('App\Like');

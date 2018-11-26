@@ -28,6 +28,11 @@ class User extends Authenticatable
     /**
      * Relationship
      */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
     public function likes()
     {
         return $this->belongsToMany('App\Product', 'like')->using('App\Like');
